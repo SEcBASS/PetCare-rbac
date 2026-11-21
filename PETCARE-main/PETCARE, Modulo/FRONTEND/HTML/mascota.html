@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Consulta el perfil y el seguimiento de salud de tu mascota en PetCare.">
+  <title>Perfil de mascota — PetCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/mascotas.css">
+  <script type="module" src="../js/mascota.js"></script>
+</head>
+<body class="pagina-perfil-mascota">
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="mascotas-arranque" role="status"><span class="mascotas-arranque__marca" aria-hidden="true">P</span><span>Preparando el perfil…</span></div>
+  </div>
+
+  <!-- Formulario para registrar un nuevo peso de la mascota actual. -->
+  <dialog class="modal mascotas-modal mascotas-modal--compacto" id="modal-peso" aria-labelledby="modal-peso-titulo">
+    <div class="modal__contenido">
+      <div class="modal__encabezado">
+        <div><p class="mascotas-modal__sobrelinea">Seguimiento de salud</p><h2 class="modal__titulo" id="modal-peso-titulo">Registrar peso</h2></div>
+        <button class="mascotas-icono-boton" type="button" data-cerrar-peso aria-label="Cerrar formulario">×</button>
+      </div>
+      <p class="mascotas-formulario__mensaje" id="formulario-peso-mensaje" role="alert" hidden></p>
+      <form class="formulario" id="formulario-peso" novalidate>
+        <label class="campo">
+          <span class="campo__etiqueta">Peso (kg) *</span>
+          <input class="campo__control" type="number" name="peso_kg" min="0.01" max="999.99" step="0.01" inputmode="decimal" required>
+          <small class="campo__error" data-error="peso_kg"></small>
+        </label>
+        <label class="campo">
+          <span class="campo__etiqueta">Fecha de medición *</span>
+          <input class="campo__control" type="date" name="medido_en" required>
+          <small class="campo__error" data-error="medido_en"></small>
+        </label>
+        <div class="modal__acciones">
+          <button class="boton boton--secundario" type="button" data-cerrar-peso>Cancelar</button>
+          <button class="boton" type="submit" id="guardar-peso">Registrar peso</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Formulario de recordatorios personales asociados a la mascota. -->
+  <dialog class="modal mascotas-modal mascotas-modal--compacto" id="modal-recordatorio" aria-labelledby="modal-recordatorio-titulo">
+    <div class="modal__contenido">
+      <div class="modal__encabezado">
+        <div><p class="mascotas-modal__sobrelinea">Organiza sus cuidados</p><h2 class="modal__titulo" id="modal-recordatorio-titulo">Nuevo recordatorio</h2></div>
+        <button class="mascotas-icono-boton" type="button" data-cerrar-recordatorio aria-label="Cerrar formulario">×</button>
+      </div>
+      <p class="mascotas-formulario__mensaje" id="formulario-recordatorio-mensaje" role="alert" hidden></p>
+      <form class="formulario" id="formulario-recordatorio" novalidate>
+        <label class="campo">
+          <span class="campo__etiqueta">Tipo *</span>
+          <select class="campo__control" name="tipo" required>
+            <option value="">Selecciona un tipo</option>
+            <option value="vacuna">Vacuna</option>
+            <option value="desparasitacion">Desparasitación</option>
+            <option value="cita">Cita</option>
+            <option value="control_peso">Control de peso</option>
+            <option value="otro">Otro</option>
+          </select>
+          <small class="campo__error" data-error="tipo"></small>
+        </label>
+        <label class="campo">
+          <span class="campo__etiqueta">Título *</span>
+          <input class="campo__control" name="titulo" type="text" maxlength="150" required>
+          <small class="campo__error" data-error="titulo"></small>
+        </label>
+        <label class="campo">
+          <span class="campo__etiqueta">Descripción</span>
+          <textarea class="campo__control" name="descripcion" rows="3" maxlength="255"></textarea>
+          <small class="campo__error" data-error="descripcion"></small>
+        </label>
+        <label class="campo">
+          <span class="campo__etiqueta">Fecha y hora *</span>
+          <input class="campo__control" name="fecha_hora" type="datetime-local" required>
+          <small class="campo__error" data-error="fecha_hora"></small>
+        </label>
+        <div class="modal__acciones">
+          <button class="boton boton--secundario" type="button" data-cerrar-recordatorio>Cancelar</button>
+          <button class="boton" type="submit" id="guardar-recordatorio">Crear recordatorio</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</body>
+</html>

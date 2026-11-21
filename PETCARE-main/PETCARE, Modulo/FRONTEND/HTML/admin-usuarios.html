@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Administra las cuentas de usuarios y consulta las mascotas registradas en PetCare.">
+  <title>Usuarios — PetCare</title>
+
+  <!-- Tipografías compartidas de PetCare. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Los estilos comunes preceden a los estilos específicos de administración. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/admin-usuarios.css">
+  <script type="module" src="../js/admin-usuarios.js"></script>
+</head>
+<body class="pagina-admin-usuarios">
+  <!-- El módulo valida el rol administrador antes de montar la interfaz. -->
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="admin-usuarios-arranque" role="status">
+      <span class="admin-usuarios-arranque__marca" aria-hidden="true">P</span>
+      <span>Preparando administración de usuarios…</span>
+    </div>
+  </div>
+</body>
+</html>

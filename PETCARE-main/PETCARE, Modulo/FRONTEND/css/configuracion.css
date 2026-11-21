@@ -1,0 +1,353 @@
+/* Estilos responsive para Cuenta, Notificaciones, Privacidad y Seguridad. */
+.configuracion-pagina {
+  display: grid;
+  width: min(100%, 78rem);
+  gap: 1.15rem;
+  margin-inline: auto;
+}
+
+.configuracion-intro {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.configuracion-intro__sobrelinea {
+  color: var(--color-rosa-hover);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.configuracion-intro h2 {
+  font-size: clamp(2rem, 5vw, 2.7rem);
+}
+
+.configuracion-intro > p:last-child {
+  max-width: 48rem;
+  color: var(--color-texto-suave);
+}
+
+.config-tabs {
+  display: flex;
+  width: 100%;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.35rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: rgba(255, 255, 255, 0.78);
+  scrollbar-width: thin;
+}
+
+.config-tab {
+  min-height: 2.65rem;
+  flex: 1 0 auto;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: var(--radio-md);
+  background: transparent;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background var(--transicion), color var(--transicion), box-shadow var(--transicion);
+}
+
+.config-tab:hover {
+  background: var(--color-rosa-suave);
+  color: var(--color-vino);
+}
+
+.config-tab[aria-selected="true"] {
+  background: var(--color-rosa);
+  box-shadow: 0 4px 12px rgba(220, 126, 158, 0.2);
+  color: #FFFFFF;
+}
+
+.configuracion-region {
+  min-width: 0;
+}
+
+.config-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.config-panel[hidden] {
+  display: none;
+}
+
+.config-tarjeta {
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1.1rem, 3vw, 1.65rem);
+}
+
+.config-tarjeta__titulo {
+  font-size: 1.55rem;
+}
+
+.config-tarjeta__descripcion {
+  max-width: 54rem;
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.config-opciones {
+  display: grid;
+}
+
+.config-opcion {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-borde);
+}
+
+.config-opcion:first-child {
+  border-top: 0;
+}
+
+.config-opcion__textos {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.config-opcion__textos strong {
+  color: var(--color-vino);
+  font-size: 0.98rem;
+}
+
+.config-opcion__textos p,
+.config-opcion__textos small {
+  color: var(--color-texto-suave);
+  font-size: 0.84rem;
+}
+
+.config-opcion__control {
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: end;
+  gap: 0.2rem;
+}
+
+.config-opcion__estado {
+  min-height: 1rem;
+  color: var(--color-exito);
+  font-size: 0.72rem;
+}
+
+.config-opcion__estado.es-error {
+  color: var(--color-error);
+}
+
+.config-interruptor {
+  position: relative;
+  display: inline-flex;
+  width: 3.05rem;
+  height: 1.8rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.config-interruptor__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.config-interruptor__visual {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #D9C9D0;
+  border-radius: var(--radio-redondo);
+  background: #EDE7EA;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+
+.config-interruptor__visual::after {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(43, 28, 38, 0.18);
+  content: "";
+  transition: transform var(--transicion);
+}
+
+.config-interruptor__input:checked + .config-interruptor__visual {
+  border-color: var(--color-rosa);
+  background: var(--color-rosa);
+}
+
+.config-interruptor__input:checked + .config-interruptor__visual::after {
+  transform: translateX(1.25rem);
+}
+
+.config-interruptor__input:focus-visible + .config-interruptor__visual {
+  outline: 3px solid rgba(220, 126, 158, 0.65);
+  outline-offset: 3px;
+}
+
+.config-interruptor__input:disabled + .config-interruptor__visual {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.config-no-disponible {
+  padding: 1rem 1.1rem;
+  border: 1px solid #F2D9B4;
+  border-radius: var(--radio-lg);
+  background: #FFF8EC;
+  color: #80521F;
+}
+
+.config-no-disponible strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.config-no-disponible p {
+  font-size: 0.88rem;
+}
+
+.config-cuenta__correo {
+  overflow-wrap: anywhere;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radio-md);
+  background: #FFF4F7;
+  color: var(--color-vino);
+  font-weight: 600;
+}
+
+.config-peligro {
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1.1rem, 3vw, 1.65rem);
+  border: 1px solid #F0C7CE;
+  border-radius: var(--radio-xl);
+  background: linear-gradient(130deg, #FFFFFF, #FFF5F5);
+  box-shadow: var(--color-sombra-suave);
+}
+
+.config-peligro__sobrelinea {
+  color: var(--color-error);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.config-peligro > p {
+  max-width: 58rem;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.config-eliminar-form {
+  max-width: 34rem;
+}
+
+.config-form__mensaje {
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radio-md);
+  background: var(--color-exito-fondo);
+  color: var(--color-exito);
+  font-size: 0.9rem;
+}
+
+.config-form__mensaje.es-error {
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+}
+
+.config-password-form {
+  width: min(100%, 42rem);
+}
+
+.config-password-form .campo__control {
+  min-height: 3rem;
+}
+
+.configuracion-estado {
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radio-md);
+  background: var(--color-info-fondo);
+  color: var(--color-info);
+  font-size: 0.86rem;
+}
+
+.configuracion-estado.es-error {
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+}
+
+.config-error {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--color-error);
+}
+
+.config-error p {
+  color: var(--color-texto-suave);
+}
+
+.config-error.tarjeta {
+  max-width: 42rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.config-error h2 {
+  font-size: 1.8rem;
+}
+
+.config-cargando {
+  padding: 1rem 0;
+  color: var(--color-texto-suave);
+}
+
+@media (min-width: 720px) {
+  .config-tabs {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .config-tab {
+    min-width: 8rem;
+  }
+
+  .config-eliminar-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .config-eliminar-form .config-form__mensaje {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .config-opcion {
+    align-items: flex-start;
+  }
+
+  .config-opcion__control {
+    padding-top: 0.1rem;
+  }
+
+  .config-opcion__textos p {
+    max-width: 30ch;
+  }
+}

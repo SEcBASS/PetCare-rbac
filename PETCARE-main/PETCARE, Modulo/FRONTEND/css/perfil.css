@@ -1,0 +1,323 @@
+/* Estilos de Mi perfil; las variables visuales proceden de css/variables.css. */
+.perfil-arranque,
+.configuracion-arranque {
+  display: grid;
+  min-height: 45vh;
+  place-items: center;
+  padding: 2rem;
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+.perfil-pagina {
+  display: grid;
+  width: min(100%, 76rem);
+  gap: 1.25rem;
+  margin-inline: auto;
+}
+
+.perfil-intro {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.2rem;
+}
+
+.perfil-intro__sobrelinea {
+  color: var(--color-rosa-hover);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.perfil-intro h2 {
+  font-size: clamp(2rem, 5vw, 2.7rem);
+}
+
+.perfil-intro > p:last-child {
+  max-width: 48rem;
+  color: var(--color-texto-suave);
+}
+
+.perfil-resumen {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.15rem, 3vw, 1.8rem);
+  border-color: rgba(220, 126, 158, 0.22);
+  background: linear-gradient(120deg, #FFFFFF 0%, #FFF4F7 100%);
+}
+
+.perfil-avatar {
+  display: grid;
+  width: 5.6rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #F5C7D5, #EAA4BC);
+  box-shadow: 0 5px 18px rgba(114, 54, 77, 0.14);
+  color: #733D52;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-resumen__datos {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+}
+
+.perfil-resumen__nombre {
+  overflow-wrap: anywhere;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+}
+
+.perfil-resumen__correo,
+.perfil-resumen__miembro {
+  overflow-wrap: anywhere;
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.perfil-rol {
+  width: fit-content;
+  margin-top: 0.35rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radio-redondo);
+  background: var(--color-rosa-suave);
+  color: var(--color-vino);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.perfil-resumen__lateral {
+  display: grid;
+  grid-column: 1 / -1;
+  justify-items: start;
+  gap: 0.5rem;
+}
+
+.perfil-avatar__accion {
+  position: relative;
+  min-height: 2.35rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.84rem;
+}
+
+.perfil-avatar__accion input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.perfil-avatar__accion:focus-within {
+  outline: 3px solid rgba(220, 126, 158, 0.65);
+  outline-offset: 3px;
+}
+
+.perfil-info {
+  padding: clamp(1.1rem, 3vw, 1.7rem);
+}
+
+.perfil-info__encabezado {
+  align-items: center;
+}
+
+.perfil-info__ayuda {
+  margin-top: 0.25rem;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.perfil-info__grid,
+.perfil-formulario__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.perfil-dato {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.perfil-dato__etiqueta {
+  color: var(--color-texto-suave);
+  font-size: 0.82rem;
+}
+
+.perfil-dato__valor {
+  overflow-wrap: anywhere;
+  color: var(--color-vino);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.perfil-formulario {
+  margin-top: 0.4rem;
+}
+
+.perfil-campo .campo__control {
+  min-height: 3rem;
+}
+
+.perfil-formulario__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.perfil-formulario__mensaje {
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radio-md);
+  background: var(--color-exito-fondo);
+  color: var(--color-exito);
+  font-size: 0.9rem;
+}
+
+.perfil-formulario__mensaje.es-error {
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+}
+
+.perfil-accesos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.85rem;
+}
+
+.perfil-acceso {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem;
+  transition: transform var(--transicion), box-shadow var(--transicion), border-color var(--transicion);
+}
+
+.perfil-acceso:hover {
+  transform: translateY(-2px);
+  border-color: rgba(220, 126, 158, 0.5);
+  box-shadow: var(--color-sombra);
+}
+
+.perfil-acceso__icono {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.95rem;
+  background: #FCE8EF;
+  color: #A94F70;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.perfil-acceso__icono--ajustes {
+  background: #F1EAFB;
+  color: #7654A0;
+}
+
+.perfil-acceso__icono--campana {
+  background: #EAF4EF;
+  color: #367A5D;
+}
+
+.perfil-acceso__contenido {
+  display: grid;
+  min-width: 0;
+  gap: 0.15rem;
+}
+
+.perfil-acceso__contenido strong {
+  color: var(--color-vino);
+  font-size: 0.96rem;
+}
+
+.perfil-acceso__contenido small {
+  color: var(--color-texto-suave);
+  font-size: 0.82rem;
+}
+
+.perfil-acceso__flecha {
+  margin-left: auto;
+  color: var(--color-rosa-hover);
+  font-size: 1.7rem;
+}
+
+.perfil-estado,
+.perfil-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: #FFFFFF;
+  color: var(--color-texto-suave);
+}
+
+.perfil-error {
+  display: grid;
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.perfil-error h2 {
+  font-size: 1.8rem;
+}
+
+@media (min-width: 640px) {
+  .perfil-resumen {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .perfil-resumen__lateral {
+    grid-column: auto;
+    justify-items: end;
+  }
+
+  .perfil-info__grid,
+  .perfil-formulario__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .perfil-accesos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .perfil-info__encabezado {
+    align-items: flex-start;
+  }
+
+  .perfil-info__encabezado .boton {
+    min-height: 2.4rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .perfil-acceso__contenido small {
+    line-height: 1.35;
+  }
+}

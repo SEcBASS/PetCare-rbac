@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="PetCare te ayuda a organizar la información de tu mascota, consultar sus vacunas, gestionar sus citas y resolver dudas sobre sus cuidados.">
+  <title>PetCare — El cuidado de tu mascota, en un solo lugar</title>
+
+  <!-- Tipografías de marca. Los estilos del sitio se mantienen en archivos CSS externos. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Base visual compartida y estilos exclusivos de la landing. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/landing.css">
+
+  <script type="module" src="../js/landing.js"></script>
+</head>
+<body class="landing">
+  <a class="salto-contenido" href="#contenido-principal">Saltar al contenido</a>
+
+  <!-- Navegación principal: en móvil se transforma en un menú desplegable. -->
+  <header class="encabezado" id="inicio">
+    <div class="contenedor encabezado__interior">
+      <a class="marca" href="index.html" aria-label="PetCare, ir al inicio">
+        <span class="marca__simbolo" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 35.2C17.7 33.1 7.2 25.7 7.2 16.8C7.2 11.7 11.1 8 15.6 8C18.1 8 19.4 9.3 20 10.4C20.6 9.3 21.9 8 24.4 8C28.9 8 32.8 11.7 32.8 16.8C32.8 25.7 22.3 33.1 20 35.2Z" fill="currentColor"/>
+            <circle cx="14" cy="17" r="1.7" fill="#fff"/>
+            <circle cx="20" cy="14.8" r="1.7" fill="#fff"/>
+            <circle cx="26" cy="17" r="1.7" fill="#fff"/>
+            <path d="M20 19.4C17.8 19.4 16.5 21 16.5 22.8C16.5 24.5 18.1 25.8 20 25.8C21.9 25.8 23.5 24.5 23.5 22.8C23.5 21 22.2 19.4 20 19.4Z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="marca__nombre">Pet<span>Care</span></span>
+      </a>
+
+      <button class="menu-movil" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">
+        <svg class="menu-movil__abrir" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <svg class="menu-movil__cerrar" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="navegacion" id="navegacion-principal" aria-label="Navegación principal">
+        <ul class="navegacion__enlaces">
+          <li><a class="navegacion__enlace" href="#inicio">Inicio</a></li>
+          <li><a class="navegacion__enlace" href="#caracteristicas">Características</a></li>
+          <li><a class="navegacion__enlace" href="#como-funciona">Cómo funciona</a></li>
+          <li><a class="navegacion__enlace" href="#sobre-petcare">Sobre PetCare</a></li>
+        </ul>
+        <div class="navegacion__acciones">
+          <a class="boton boton--texto navegacion__login" href="login.html">Iniciar sesión</a>
+          <a class="boton navegacion__registro" href="registro.html">Crear cuenta</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <!-- Hero principal: la imagen se proporciona desde img/mascota-hero.webp. -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero__decoracion hero__decoracion--uno" aria-hidden="true"></div>
+      <div class="hero__decoracion hero__decoracion--dos" aria-hidden="true"></div>
+      <div class="contenedor hero__rejilla">
+        <div class="hero__contenido" data-revelar>
+          <p class="etiqueta-hero">
+            <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 1.8L11.7 7.1L17 8.8L11.7 10.5L10 15.8L8.3 10.5L3 8.8L8.3 7.1L10 1.8Z" fill="currentColor"/>
+              <path d="M16 13.5L16.8 15.7L19 16.5L16.8 17.3L16 19.5L15.2 17.3L13 16.5L15.2 15.7L16 13.5Z" fill="currentColor"/>
+            </svg>
+            La app de cuidado para tu mascota
+          </p>
+          <h1 id="titulo-principal">El cuidado de tu mascota, <em>en un solo lugar.</em></h1>
+          <p class="hero__descripcion">Organiza su información, controla sus vacunas, agenda citas y recibe recomendaciones personalizadas.</p>
+          <div class="hero__acciones">
+            <a class="boton hero__boton-principal" href="registro.html">
+              Comenzar ahora
+              <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 10H16M10.5 4.5L16 10L10.5 15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="boton boton--secundario hero__boton-secundario" href="#caracteristicas">Conocer más</a>
+          </div>
+          <p class="hero__nota">
+            <svg viewBox="0 0 18 18" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1.5L15.5 4V8.2C15.5 12.1 12.8 15.1 9 16.5C5.2 15.1 2.5 12.1 2.5 8.2V4L9 1.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6.2 8.8L8.1 10.7L11.9 6.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Un espacio pensado para perros y gatos
+          </p>
+        </div>
+
+        <div class="hero__visual" data-revelar>
+          <div class="hero__halo" aria-hidden="true"></div>
+          <figure class="hero__marco-imagen">
+            <img class="hero__imagen-mascota" src="img/mascota-hero.webp" alt="Mascota acompañada de un entorno cálido y tranquilo" width="720" height="780" fetchpriority="high">
+            <div class="hero__imagen-alternativa" hidden>
+              <span class="hero__imagen-icono" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 55C27 50.5 8 37.5 8 22C8 13 14.8 7 22.4 7C26.8 7 30 9.2 32 12.5C34 9.2 37.2 7 41.6 7C49.2 7 56 13 56 22C56 37.5 37 50.5 32 55Z" fill="currentColor"/>
+                  <circle cx="21" cy="25" r="3" fill="#fff"/><circle cx="32" cy="21" r="3" fill="#fff"/><circle cx="43" cy="25" r="3" fill="#fff"/>
+                  <path d="M32 30C27.5 30 25 33 25 36C25 39 28 41 32 41C36 41 39 39 39 36C39 33 36.5 30 32 30Z" fill="#fff"/>
+                </svg>
+              </span>
+              <strong>Tu mascota tiene su lugar aquí</strong>
+              <span>Añade tu imagen en <code>img/mascota-hero.webp</code></span>
+            </div>
+          </figure>
+
+          <div class="hero__adorno hero__adorno--flor" aria-hidden="true">✿</div>
+          <div class="hero__adorno hero__adorno--corazon" aria-hidden="true">♥</div>
+          <div class="tarjeta-ai" aria-label="PetCare AI, disponible ahora">
+            <span class="tarjeta-ai__icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.8L13.9 9.1L20.2 11L13.9 12.9L12 19.2L10.1 12.9L3.8 11L10.1 9.1L12 2.8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M19 15.5L19.8 18.2L22.5 19L19.8 19.8L19 22.5L18.2 19.8L15.5 19L18.2 18.2L19 15.5Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="tarjeta-ai__texto">
+              <strong>PetCare AI</strong>
+              <span><i aria-hidden="true"></i> Disponible ahora</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <a class="hero__bajar" href="#caracteristicas" aria-label="Bajar a características">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4V20M5.5 13.5L12 20L18.5 13.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- Funciones principales: se describen capacidades reales del producto, sin cifras ni reseñas. -->
+    <section class="seccion caracteristicas" id="caracteristicas" aria-labelledby="titulo-caracteristicas">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="sobrelinea">Todo lo importante, más cerca</span>
+          <h2 id="titulo-caracteristicas">Cada detalle de su cuidado <em>cuenta.</em></h2>
+          <p>Ten organizada la información que necesitas para acompañar su bienestar día a día.</p>
+        </div>
+
+        <div class="caracteristicas__rejilla">
+          <article class="funcion-card funcion-card--rosa" data-revelar>
+            <span class="funcion-card__icono" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M6.5 27C7.2 21.8 10.8 18.5 16 18.5C21.2 18.5 24.8 21.8 25.5 27" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M24 8.5L26 10.5L29 7.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3>Perfil de mascota</h3>
+            <p>Ten a mano sus datos y su información importante en un perfil organizado.</p>
+          </article>
+
+          <article class="funcion-card funcion-card--crema" data-revelar>
+            <span class="funcion-card__icono" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="7" y="5.5" width="18" height="22" rx="3" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M12 5.5V3.5M20 5.5V3.5M11.5 13H20.5M11.5 18H20.5M11.5 23H17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M16 10.5V15.5M13.5 13H18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h3>Vacunas y recordatorios</h3>
+            <p>Consulta su carnet de vacunas y mantente al tanto de los próximos cuidados.</p>
+          </article>
+
+          <article class="funcion-card funcion-card--lila" data-revelar>
+            <span class="funcion-card__icono" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4.5" y="7" width="23" height="21" rx="3" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M10 4.5V9M22 4.5V9M5 12.5H27M10 17H14M18 17H22M10 22H14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h3>Citas veterinarias</h3>
+            <p>Revisa las citas veterinarias de tu mascota y ten presente cada visita.</p>
+          </article>
+
+          <article class="funcion-card funcion-card--menta" data-revelar>
+            <span class="funcion-card__icono" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4.5C9.7 4.5 5 8.9 5 14.4C5 17.2 6.2 19.4 8.2 21L7 27.5L13.2 24.5C14.1 24.7 15 24.8 16 24.8C22.3 24.8 27 20.4 27 14.9C27 9.4 22.3 4.5 16 4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M11 14.5H11.1M16 14.5H16.1M21 14.5H21.1" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h3>Asistente IA</h3>
+            <p>Encuentra orientación para resolver dudas generales sobre el cuidado de tu mascota.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explicación breve del recorrido inicial dentro de PetCare. -->
+    <section class="seccion como-funciona" id="como-funciona" aria-labelledby="titulo-como-funciona">
+      <div class="contenedor como-funciona__interior">
+        <div class="como-funciona__introduccion" data-revelar>
+          <span class="sobrelinea">Sencillo desde el comienzo</span>
+          <h2 id="titulo-como-funciona">Cuidar mejor puede empezar <em>hoy.</em></h2>
+          <p>PetCare reúne la información de tu compañero en un espacio fácil de consultar.</p>
+          <a class="boton como-funciona__boton" href="registro.html">
+            Empezar gratis
+            <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10H16M10.5 4.5L16 10L10.5 15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <ol class="pasos" aria-label="Pasos para empezar a usar PetCare">
+          <li class="paso" data-revelar>
+            <span class="paso__numero" aria-hidden="true">01</span>
+            <div class="paso__contenido">
+              <h3>Registra a tu mascota</h3>
+              <p>Crea su perfil con la información que quieres tener siempre a mano.</p>
+            </div>
+          </li>
+          <li class="paso" data-revelar>
+            <span class="paso__numero" aria-hidden="true">02</span>
+            <div class="paso__contenido">
+              <h3>Organiza su información</h3>
+              <p>Consulta sus vacunas, recordatorios y citas desde un mismo espacio.</p>
+            </div>
+          </li>
+          <li class="paso" data-revelar>
+            <span class="paso__numero" aria-hidden="true">03</span>
+            <div class="paso__contenido">
+              <h3>Cuida mejor de ella</h3>
+              <p>Da seguimiento a sus cuidados y busca orientación cuando la necesites.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="como-funciona__sello" aria-hidden="true">♡</div>
+    </section>
+
+    <!-- Presentación breve de la propuesta PetCare; no incluye cifras ni testimonios. -->
+    <section class="sobre-petcare" id="sobre-petcare" aria-labelledby="titulo-sobre-petcare">
+      <div class="contenedor sobre-petcare__interior" data-revelar>
+        <span class="sobrelinea">Sobre PetCare</span>
+        <h2 id="titulo-sobre-petcare">Más organización para estar <em>más cerca.</em></h2>
+        <p>PetCare es un espacio digital para acompañarte en el cuidado de perros y gatos. Reúne su información, sus controles y herramientas de orientación para que puedas consultarlos con facilidad.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página con navegación informativa, sin tienda ni precios. -->
+  <footer class="pie-pagina">
+    <div class="contenedor pie-pagina__rejilla">
+      <div class="pie-pagina__marca">
+        <a class="marca marca--footer" href="#inicio" aria-label="PetCare, volver al inicio">
+          <span class="marca__simbolo" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 35.2C17.7 33.1 7.2 25.7 7.2 16.8C7.2 11.7 11.1 8 15.6 8C18.1 8 19.4 9.3 20 10.4C20.6 9.3 21.9 8 24.4 8C28.9 8 32.8 11.7 32.8 16.8C32.8 25.7 22.3 33.1 20 35.2Z" fill="currentColor"/>
+              <circle cx="14" cy="17" r="1.7" fill="#2B1C26"/><circle cx="20" cy="14.8" r="1.7" fill="#2B1C26"/><circle cx="26" cy="17" r="1.7" fill="#2B1C26"/>
+              <path d="M20 19.4C17.8 19.4 16.5 21 16.5 22.8C16.5 24.5 18.1 25.8 20 25.8C21.9 25.8 23.5 24.5 23.5 22.8C23.5 21 22.2 19.4 20 19.4Z" fill="#2B1C26"/>
+            </svg>
+          </span>
+          <span class="marca__nombre">Pet<span>Care</span></span>
+        </a>
+        <p>Un espacio para organizar y acompañar el cuidado de tu mascota.</p>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h2>Producto</h2>
+        <ul>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h2>Soporte</h2>
+        <ul>
+          <li><a href="centro-ayuda.html">Centro de ayuda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie-pagina__inferior">
+      <span>PetCare</span>
+      <a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>

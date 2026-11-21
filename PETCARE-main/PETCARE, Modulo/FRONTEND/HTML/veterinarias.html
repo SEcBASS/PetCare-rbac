@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Consulta veterinarias, sus servicios, datos de contacto y horarios en PetCare.">
+  <title>Veterinarias — PetCare</title>
+
+  <!-- Tipografías compartidas por toda la aplicación. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Primero se cargan los estilos base y después los del módulo. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/veterinarias.css">
+  <script type="module" src="../js/veterinarias.js"></script>
+</head>
+<body class="pagina-veterinarias">
+  <!-- La aplicación solo se monta después de validar la sesión en el servidor. -->
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="veterinarias-arranque" role="status">
+      <span class="veterinarias-arranque__marca" aria-hidden="true">P</span>
+      <span>Preparando el directorio de veterinarias…</span>
+    </div>
+  </div>
+</body>
+</html>

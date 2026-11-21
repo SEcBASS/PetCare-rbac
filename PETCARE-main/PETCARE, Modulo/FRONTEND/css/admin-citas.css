@@ -1,0 +1,103 @@
+/* Gestión administrativa de citas: listado, calendario y diálogo de edición. */
+.admin-citas { display: grid; gap: var(--espacio-5); max-width: 100%; }
+.admin-citas__intro { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--espacio-4); }
+.admin-citas__intro-texto { display: grid; gap: .45rem; }
+.admin-citas__sobrelinea { display: inline-flex; align-items: center; gap: .5rem; color: var(--color-rosa-hover); font-size: .83rem; font-weight: 700; letter-spacing: .035em; }
+.admin-citas__sobrelinea svg { width: 1.1rem; height: 1.1rem; }
+.admin-citas__intro h2 { font-size: clamp(1.85rem, 5vw, 2.65rem); }
+.admin-citas__intro p:last-child { color: var(--color-texto-suave); }
+.admin-citas__filtros { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--espacio-3); padding: var(--espacio-4); border: 1px solid var(--color-borde); border-radius: var(--radio-xl); background: var(--color-superficie); box-shadow: var(--color-sombra-suave); }
+.admin-citas__campo { display: grid; gap: .4rem; min-width: 0; }
+.admin-citas__campo label { color: var(--color-texto-suave); font-size: .82rem; font-weight: 600; }
+.admin-citas__campo input, .admin-citas__campo select, .admin-citas-dialogo input, .admin-citas-dialogo select { width: 100%; min-height: 2.8rem; padding: .65rem .8rem; border: 1px solid var(--color-borde); border-radius: var(--radio-sm); background: #FFFCFD; outline: none; }
+.admin-citas__campo input:focus-visible, .admin-citas__campo select:focus-visible, .admin-citas-dialogo input:focus-visible, .admin-citas-dialogo select:focus-visible { border-color: var(--color-rosa); box-shadow: 0 0 0 3px rgba(220,126,158,.17); }
+.admin-citas__usuario-filtro { position: relative; }
+.admin-citas__sugerencias { position: absolute; z-index: 8; top: calc(100% + .35rem); left: 0; right: 0; max-height: 16rem; overflow: auto; padding: .35rem; border: 1px solid var(--color-borde); border-radius: var(--radio-md); background: white; box-shadow: var(--color-sombra); }
+.admin-citas__sugerencia { display: grid; width: 100%; gap: .08rem; padding: .65rem .75rem; border: 0; border-radius: var(--radio-sm); background: transparent; text-align: left; }
+.admin-citas__sugerencia:hover, .admin-citas__sugerencia:focus-visible { background: var(--color-rosa-suave); }
+.admin-citas__sugerencia small { color: var(--color-texto-suave); }
+.admin-citas__usuario-elegido { display: flex; align-items: center; gap: .35rem; margin-top: .3rem; color: var(--color-rosa-hover); font-size: .78rem; }
+.admin-citas__usuario-elegido button { padding: 0; border: 0; background: none; color: inherit; font-weight: 700; text-decoration: underline; }
+.admin-citas__barra-vista { display: flex; align-items: center; justify-content: space-between; gap: var(--espacio-3); }
+.admin-citas__vistas { display: inline-flex; gap: .25rem; padding: .25rem; border: 1px solid var(--color-borde); border-radius: var(--radio-redondo); background: white; }
+.admin-citas__vista { min-height: 2.35rem; padding: .45rem .95rem; border: 0; border-radius: var(--radio-redondo); background: transparent; color: var(--color-texto-suave); font-weight: 600; }
+.admin-citas__vista[aria-pressed="true"] { background: var(--color-rosa-suave); color: var(--color-vino); }
+.admin-citas__mes { display: flex; align-items: center; gap: .8rem; }
+.admin-citas__mes strong { min-width: 9rem; color: var(--color-vino); text-align: center; text-transform: capitalize; }
+.admin-citas__flecha { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border: 1px solid var(--color-borde); border-radius: 50%; background: white; color: var(--color-vino); font-size: 1.25rem; }
+.admin-citas__panel { min-width: 0; overflow: hidden; border: 1px solid var(--color-borde); border-radius: var(--radio-xl); background: white; box-shadow: var(--color-sombra-suave); }
+.admin-citas__panel-cabecera { display: flex; align-items: center; justify-content: space-between; gap: var(--espacio-3); padding: var(--espacio-5); border-bottom: 1px solid var(--color-borde); }
+.admin-citas__panel-cabecera h3 { font-size: 1.45rem; }
+.admin-citas__panel-cabecera p { margin-top: .2rem; color: var(--color-texto-suave); font-size: .88rem; }
+.admin-citas__tabla-scroll { width: 100%; overflow-x: auto; }
+.admin-citas__tabla { width: 100%; border-collapse: collapse; text-align: left; }
+.admin-citas__tabla th, .admin-citas__tabla td { padding: .9rem 1rem; border-bottom: 1px solid var(--color-borde); vertical-align: middle; }
+.admin-citas__tabla th { background: #FFFAFC; color: var(--color-texto-suave); font-size: .75rem; font-weight: 700; white-space: nowrap; }
+.admin-citas__tabla td { color: var(--color-texto); font-size: .87rem; }
+.admin-citas__tabla tbody tr:last-child td { border-bottom: 0; }
+.admin-citas__tabla strong { display: block; color: var(--color-vino); font-weight: 700; }
+.admin-citas__tabla small { display: block; margin-top: .12rem; color: var(--color-texto-suave); }
+.admin-citas__accion { padding: .45rem .75rem; border: 1px solid var(--color-borde); border-radius: var(--radio-redondo); background: white; color: var(--color-rosa-hover); font-size: .82rem; font-weight: 700; white-space: nowrap; }
+.admin-citas__accion:hover { background: var(--color-rosa-suave); }
+.admin-citas__estado { display: inline-flex; align-items: center; padding: .32rem .7rem; border-radius: var(--radio-redondo); font-size: .75rem; font-weight: 700; white-space: nowrap; }
+.admin-citas__estado--pendiente { background: var(--color-pendiente-fondo); color: var(--color-pendiente); }
+.admin-citas__estado--confirmada { background: var(--color-exito-fondo); color: var(--color-exito); }
+.admin-citas__estado--completada { background: var(--color-completado-fondo); color: var(--color-completado); }
+.admin-citas__estado--cancelada { background: var(--color-error-fondo); color: var(--color-error); }
+.admin-citas__estado-carga, .admin-citas__estado-vacio, .admin-citas__estado-error { display: grid; justify-items: center; gap: .55rem; padding: 3rem 1.2rem; color: var(--color-texto-suave); text-align: center; }
+.admin-citas__estado-vacio strong, .admin-citas__estado-error strong { color: var(--color-vino); font-size: 1.1rem; }
+.admin-citas__estado-error p { max-width: 34rem; }
+.admin-citas__paginacion { display: flex; align-items: center; justify-content: space-between; gap: var(--espacio-3); padding: .85rem var(--espacio-5); border-top: 1px solid var(--color-borde); color: var(--color-texto-suave); font-size: .82rem; }
+.admin-citas__calendario { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.admin-citas__dia-semana { padding: .75rem .25rem; background: #FFFAFC; color: var(--color-texto-suave); font-size: .75rem; font-weight: 700; text-align: center; }
+.admin-citas__dia { min-width: 0; min-height: 8.2rem; padding: .45rem; border-top: 1px solid var(--color-borde); border-right: 1px solid var(--color-borde); }
+.admin-citas__dia:nth-child(7n) { border-right: 0; }
+.admin-citas__dia--otro { background: #FFFCFD; color: #B8AEB4; }
+.admin-citas__dia-numero { display: inline-grid; width: 1.7rem; height: 1.7rem; place-items: center; border-radius: 50%; font-size: .78rem; font-weight: 700; }
+.admin-citas__dia--hoy .admin-citas__dia-numero { background: var(--color-rosa); color: white; }
+.admin-citas__evento { display: grid; width: 100%; gap: .1rem; margin-top: .28rem; padding: .35rem .42rem; overflow: hidden; border: 0; border-left: 3px solid var(--color-rosa); border-radius: .45rem; background: var(--color-rosa-suave); color: var(--color-vino); text-align: left; }
+.admin-citas__evento strong, .admin-citas__evento span { overflow: hidden; font-size: .67rem; text-overflow: ellipsis; white-space: nowrap; }
+.admin-citas__evento--pendiente { border-left-color: var(--color-pendiente); background: var(--color-pendiente-fondo); }
+.admin-citas__evento--confirmada { border-left-color: var(--color-exito); background: var(--color-exito-fondo); }
+.admin-citas__evento--completada { border-left-color: var(--color-completado); background: var(--color-completado-fondo); }
+.admin-citas__evento--cancelada { border-left-color: var(--color-error); background: var(--color-error-fondo); }
+.admin-citas__dialogo { width: min(42rem, calc(100% - 1.5rem)); max-height: min(90vh, 55rem); margin: auto; padding: 0; overflow: auto; border: 1px solid var(--color-borde); border-radius: var(--radio-xl); background: white; color: var(--color-texto); box-shadow: 0 24px 70px rgba(43,28,38,.22); }
+.admin-citas__dialogo::backdrop { background: rgba(43,28,38,.45); backdrop-filter: blur(3px); }
+.admin-citas-dialogo__cabecera { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: var(--espacio-5); border-bottom: 1px solid var(--color-borde); }
+.admin-citas-dialogo__cabecera h3 { font-size: 1.55rem; }
+.admin-citas-dialogo__cabecera p { margin-top: .25rem; color: var(--color-texto-suave); font-size: .85rem; }
+.admin-citas-dialogo__cerrar { display: grid; width: 2.3rem; height: 2.3rem; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; background: var(--color-rosa-suave); color: var(--color-vino); font-size: 1.2rem; }
+.admin-citas-dialogo__cuerpo { display: grid; gap: var(--espacio-5); padding: var(--espacio-5); }
+.admin-citas-dialogo__resumen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.admin-citas-dialogo__dato { display: grid; gap: .12rem; padding: .75rem; border-radius: var(--radio-md); background: #FFFAFC; }
+.admin-citas-dialogo__dato span { color: var(--color-texto-suave); font-size: .75rem; }
+.admin-citas-dialogo__dato strong { overflow-wrap: anywhere; color: var(--color-vino); font-size: .9rem; }
+.admin-citas-dialogo__seccion { display: grid; gap: .75rem; padding-top: var(--espacio-4); border-top: 1px solid var(--color-borde); }
+.admin-citas-dialogo__seccion h4 { font-family: var(--fuente-texto); font-size: 1rem; font-weight: 700; }
+.admin-citas-dialogo__fila { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: .65rem; }
+.admin-citas-dialogo__horas { display: grid; grid-template-columns: 1fr auto; gap: .65rem; align-items: end; }
+.admin-citas-dialogo__aviso { padding: .75rem .9rem; border-radius: var(--radio-sm); background: var(--color-info-fondo); color: var(--color-info); font-size: .84rem; }
+.admin-citas-dialogo__aviso--error { background: var(--color-error-fondo); color: var(--color-error); }
+.admin-citas-dialogo__vacuna { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem; border: 1px solid #DCCCF1; border-radius: var(--radio-md); background: #F7F2FD; }
+.admin-citas-dialogo__vacuna p { color: #60438D; font-size: .86rem; }
+.admin-citas-dialogo__vacuna-enlace { display: inline-flex; align-items: center; justify-content: center; min-height: 2.5rem; padding: .55rem .9rem; border-radius: var(--radio-redondo); background: #7250A5; color: white; font-size: .84rem; font-weight: 700; }
+.admin-citas__aviso-global { padding: .8rem 1rem; border: 1px solid #CDE8D8; border-radius: var(--radio-md); background: var(--color-exito-fondo); color: var(--color-exito); }
+.admin-citas-arranque { display: flex; min-height: 100vh; align-items: center; justify-content: center; gap: .8rem; color: var(--color-texto-suave); }
+.admin-citas-arranque__marca { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 1rem; background: var(--color-rosa-suave); color: var(--color-rosa-hover); font-family: var(--fuente-titulos); font-size: 1.5rem; }
+@media (max-width: 900px) { .admin-citas__filtros { grid-template-columns: repeat(2, minmax(0,1fr)); } .admin-citas__dia { min-height: 7rem; } }
+@media (max-width: 620px) {
+  .admin-citas__intro { align-items: flex-start; flex-direction: column; }
+  .admin-citas__intro > .boton { width: 100%; }
+  .admin-citas__filtros { grid-template-columns: 1fr; }
+  .admin-citas__barra-vista { align-items: flex-start; flex-direction: column; }
+  .admin-citas__mes { align-self: stretch; justify-content: space-between; }
+  .admin-citas__dia { min-height: 5.2rem; padding: .2rem; }
+  .admin-citas__dia-semana { font-size: .65rem; }
+  .admin-citas__evento { padding: .22rem; border-left-width: 2px; }
+  .admin-citas__evento span { display: none; }
+  .admin-citas-dialogo__resumen { grid-template-columns: 1fr; }
+  .admin-citas-dialogo__fila, .admin-citas-dialogo__horas { grid-template-columns: 1fr; }
+  .admin-citas-dialogo__vacuna { align-items: flex-start; flex-direction: column; }
+  .admin-citas__panel-cabecera { align-items: flex-start; flex-direction: column; }
+  .admin-citas__paginacion { align-items: flex-start; flex-direction: column; }
+}

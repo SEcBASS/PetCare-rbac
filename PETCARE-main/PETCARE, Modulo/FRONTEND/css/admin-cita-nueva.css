@@ -1,0 +1,46 @@
+/* Formulario administrativo de agendamiento y resumen dinámico. */
+.admin-cita { display: grid; gap: var(--espacio-5); max-width: 100%; }
+.admin-cita__intro { display: grid; gap: .45rem; }
+.admin-cita__sobrelinea { display: inline-flex; align-items: center; gap: .5rem; color: var(--color-rosa-hover); font-size: .83rem; font-weight: 700; }
+.admin-cita__sobrelinea svg { width: 1.1rem; height: 1.1rem; }
+.admin-cita__intro h2 { font-size: clamp(1.85rem, 5vw, 2.6rem); }
+.admin-cita__intro p { color: var(--color-texto-suave); }
+.admin-cita__rejilla { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(17rem, .8fr); align-items: start; gap: var(--espacio-5); }
+.admin-cita__formulario, .admin-cita__resumen { min-width: 0; border: 1px solid var(--color-borde); border-radius: var(--radio-xl); background: white; box-shadow: var(--color-sombra-suave); }
+.admin-cita__formulario { display: grid; gap: var(--espacio-5); padding: clamp(1rem, 3vw, 1.6rem); }
+.admin-cita__campo { display: grid; gap: .42rem; min-width: 0; }
+.admin-cita__campo label { color: var(--color-vino); font-weight: 700; font-size: .9rem; }
+.admin-cita__campo input, .admin-cita__campo select, .admin-cita__campo textarea { width: 100%; min-height: 2.9rem; padding: .7rem .85rem; border: 1px solid var(--color-borde); border-radius: var(--radio-sm); background: #FFFCFD; outline: none; }
+.admin-cita__campo textarea { min-height: 7rem; resize: vertical; }
+.admin-cita__campo input:focus-visible, .admin-cita__campo select:focus-visible, .admin-cita__campo textarea:focus-visible { border-color: var(--color-rosa); box-shadow: 0 0 0 3px rgba(220,126,158,.18); }
+.admin-cita__ayuda { color: var(--color-texto-suave); font-size: .78rem; }
+.admin-cita__buscador { position: relative; }
+.admin-cita__sugerencias { position: absolute; z-index: 10; top: calc(100% + .3rem); left: 0; right: 0; max-height: 15rem; overflow: auto; padding: .35rem; border: 1px solid var(--color-borde); border-radius: var(--radio-md); background: white; box-shadow: var(--color-sombra); }
+.admin-cita__sugerencia { display: grid; width: 100%; gap: .1rem; padding: .65rem .75rem; border: 0; border-radius: var(--radio-sm); background: transparent; text-align: left; }
+.admin-cita__sugerencia:hover, .admin-cita__sugerencia:focus-visible { background: var(--color-rosa-suave); }
+.admin-cita__sugerencia small { color: var(--color-texto-suave); }
+.admin-cita__usuario-seleccionado { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .75rem .85rem; border: 1px solid #E8CED8; border-radius: var(--radio-md); background: #FFF8FA; }
+.admin-cita__usuario-seleccionado strong { display: block; color: var(--color-vino); }
+.admin-cita__usuario-seleccionado small { color: var(--color-texto-suave); }
+.admin-cita__quitar { flex: 0 0 auto; padding: .35rem .6rem; border: 1px solid var(--color-borde); border-radius: var(--radio-redondo); background: white; color: var(--color-rosa-hover); font-size: .78rem; font-weight: 700; }
+.admin-cita__horas { display: grid; gap: .55rem; }
+.admin-cita__estado-horas { display: flex; align-items: center; gap: .45rem; color: var(--color-texto-suave); font-size: .8rem; }
+.admin-cita__estado-horas--error { color: var(--color-error); }
+.admin-cita__estado-horas--exito { color: var(--color-exito); }
+.admin-cita__error { padding: .8rem .9rem; border-radius: var(--radio-sm); background: var(--color-error-fondo); color: var(--color-error); font-size: .87rem; }
+.admin-cita__acciones { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .7rem; padding-top: var(--espacio-3); border-top: 1px solid var(--color-borde); }
+.admin-cita__resumen { position: sticky; top: calc(var(--alto-barra-superior) + 1rem); overflow: hidden; }
+.admin-cita__resumen-cabecera { padding: var(--espacio-5); background: linear-gradient(135deg, #F9DCE6 0%, #FCECF1 54%, #F5EAFE 100%); }
+.admin-cita__resumen-cabecera span { color: #8D4E68; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.admin-cita__resumen-cabecera h3 { margin-top: .25rem; font-size: 1.55rem; }
+.admin-cita__resumen-contenido { display: grid; gap: .85rem; padding: var(--espacio-5); }
+.admin-cita__resumen-fila { display: grid; gap: .14rem; padding-bottom: .7rem; border-bottom: 1px solid var(--color-borde); }
+.admin-cita__resumen-fila:last-child { padding-bottom: 0; border-bottom: 0; }
+.admin-cita__resumen-fila span { color: var(--color-texto-suave); font-size: .76rem; }
+.admin-cita__resumen-fila strong { color: var(--color-vino); font-size: .91rem; overflow-wrap: anywhere; }
+.admin-cita__resumen-vacio { padding: .85rem; border-radius: var(--radio-md); background: #FFFAFC; color: var(--color-texto-suave); font-size: .84rem; }
+.admin-cita__resumen-pie { padding: 0 var(--espacio-5) var(--espacio-5); color: var(--color-texto-suave); font-size: .78rem; }
+.admin-cita-arranque { display: flex; min-height: 100vh; align-items: center; justify-content: center; gap: .8rem; color: var(--color-texto-suave); }
+.admin-cita-arranque__marca { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 1rem; background: var(--color-rosa-suave); color: var(--color-rosa-hover); font-family: var(--fuente-titulos); font-size: 1.5rem; }
+@media (max-width: 850px) { .admin-cita__rejilla { grid-template-columns: 1fr; } .admin-cita__resumen { position: static; grid-row: 1; } }
+@media (max-width: 560px) { .admin-cita__acciones { display: grid; grid-template-columns: 1fr; } .admin-cita__acciones .boton { width: 100%; } .admin-cita__usuario-seleccionado { align-items: flex-start; flex-direction: column; } }

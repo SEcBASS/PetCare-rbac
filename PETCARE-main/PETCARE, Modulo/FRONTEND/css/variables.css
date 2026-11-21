@@ -1,0 +1,58 @@
+/* Variables globales del sistema visual PetCare. */
+:root {
+  color-scheme: light;
+
+  /* Colores principales de marca. */
+  --color-fondo: #FEF7F7;
+  --color-superficie: #FFFFFF;
+  --color-rosa: #DC7E9E;
+  --color-rosa-hover: #C96D8D;
+  --color-rosa-suave: #FCE8EF;
+  --color-vino: #2B1C26;
+  --color-texto: #493B43;
+  --color-texto-suave: #837780;
+  --color-borde: #F0E3E8;
+  --color-sombra: 0 12px 32px rgba(76, 42, 57, 0.08);
+  --color-sombra-suave: 0 5px 18px rgba(76, 42, 57, 0.06);
+
+  /* Estados compartidos. */
+  --color-exito: #247A55;
+  --color-exito-fondo: #E3F5EB;
+  --color-pendiente: #A95F16;
+  --color-pendiente-fondo: #FFF0D9;
+  --color-completado: #7250A5;
+  --color-completado-fondo: #F0E9FB;
+  --color-error: #B4233B;
+  --color-error-fondo: #FDE9ED;
+  --color-info: #28658C;
+  --color-info-fondo: #E8F3FA;
+
+  /* Tipografías: las páginas cargan DM Serif Display y Outfit desde Google Fonts. */
+  --fuente-titulos: "DM Serif Display", Georgia, serif;
+  --fuente-texto: "Outfit", Arial, sans-serif;
+
+  /* Radios. */
+  --radio-xs: 0.5rem;
+  --radio-sm: 0.75rem;
+  --radio-md: 1rem;
+  --radio-lg: 1.35rem;
+  --radio-xl: 1.75rem;
+  --radio-redondo: 999px;
+
+  /* Espaciados en múltiplos de 4 px. */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.25rem;
+  --espacio-6: 1.5rem;
+  --espacio-8: 2rem;
+  --espacio-10: 2.5rem;
+  --espacio-12: 3rem;
+
+  /* Dimensiones y transiciones comunes. */
+  --ancho-barra-lateral: 17rem;
+  --alto-barra-superior: 5rem;
+  --transicion: 180ms ease;
+  --ancho-contenido: 88rem;
+}

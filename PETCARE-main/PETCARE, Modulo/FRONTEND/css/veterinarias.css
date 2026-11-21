@@ -1,0 +1,543 @@
+/* Estilos exclusivos del directorio de veterinarias. */
+.pagina-veterinarias {
+  background: var(--color-fondo);
+}
+
+.veterinarias-arranque {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  color: var(--color-texto-suave);
+  font-weight: 600;
+}
+
+.veterinarias-arranque__marca {
+  display: grid;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 1rem;
+  background: var(--color-rosa-suave);
+  color: var(--color-vino);
+  font-family: var(--fuente-titulos);
+  font-size: 1.7rem;
+}
+
+.veterinarias-pagina {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  width: min(100%, 82rem);
+  margin-inline: auto;
+}
+
+.veterinarias-intro {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.veterinarias-intro__sobrelinea {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-rosa-hover);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.veterinarias-intro__sobrelinea svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.veterinarias-intro h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.veterinarias-intro > p:last-child {
+  max-width: 42rem;
+  color: var(--color-texto-suave);
+}
+
+.veterinarias-controles {
+  display: grid;
+  gap: 1rem;
+}
+
+.veterinarias-buscador {
+  display: flex;
+  min-height: 3.35rem;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-redondo);
+  background: var(--color-superficie);
+  box-shadow: var(--color-sombra-suave);
+}
+
+.veterinarias-buscador:focus-within {
+  border-color: var(--color-rosa);
+  box-shadow: 0 0 0 3px rgba(220, 126, 158, 0.16);
+}
+
+.veterinarias-buscador__icono {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  color: var(--color-texto-suave);
+}
+
+.veterinarias-buscador input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.8rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-texto);
+}
+
+.veterinarias-buscador input::placeholder {
+  color: var(--color-texto-suave);
+  opacity: 0.85;
+}
+
+.veterinarias-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.veterinarias-filtro {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-redondo);
+  background: var(--color-superficie);
+  color: var(--color-texto-suave);
+  font-size: 0.91rem;
+  font-weight: 600;
+  transition: border-color var(--transicion), background var(--transicion), color var(--transicion), transform var(--transicion);
+}
+
+.veterinarias-filtro:hover {
+  border-color: var(--color-rosa);
+  color: var(--color-vino);
+  transform: translateY(-1px);
+}
+
+.veterinarias-filtro[aria-pressed="true"] {
+  border-color: var(--color-rosa);
+  background: var(--color-rosa-suave);
+  color: var(--color-vino);
+}
+
+.veterinarias-filtro svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.veterinarias-aviso {
+  padding: 0.85rem 1rem;
+  border: 1px solid #E7D6B8;
+  border-radius: var(--radio-md);
+  background: #FFF8E9;
+  color: #6A5129;
+  font-size: 0.91rem;
+}
+
+.veterinarias-aviso--info {
+  border-color: #D8DDEB;
+  background: #F4F5FB;
+  color: #3F4663;
+}
+
+.veterinarias-resultados {
+  display: grid;
+  gap: 1rem;
+}
+
+.veterinarias-resultados__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.veterinarias-resultados__encabezado h3 {
+  font-size: 1.45rem;
+}
+
+.veterinarias-resultados__cantidad {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.veterinarias-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.veterinaria-tarjeta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(240, 227, 232, 0.9);
+  border-radius: var(--radio-xl);
+  background: var(--color-superficie);
+  box-shadow: var(--color-sombra-suave);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.veterinaria-tarjeta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--color-sombra);
+}
+
+.veterinaria-tarjeta__encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.veterinaria-tarjeta__identidad {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.veterinaria-tarjeta__nombre {
+  overflow-wrap: anywhere;
+  font-size: 1.4rem;
+}
+
+.veterinaria-tarjeta__insignia {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radio-redondo);
+  background: #FFF1E5;
+  color: #925323;
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.veterinaria-tarjeta__insignia svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.veterinaria-tarjeta__calificacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.veterinaria-tarjeta__estrella {
+  width: 1rem;
+  height: 1rem;
+  color: #D39A35;
+}
+
+.veterinaria-tarjeta__valoracion {
+  color: var(--color-vino);
+  font-weight: 700;
+}
+
+.veterinaria-tarjeta__datos {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.veterinaria-tarjeta__dato {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.veterinaria-tarjeta__dato svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  margin-top: 0.12rem;
+  color: var(--color-rosa-hover);
+}
+
+.veterinaria-tarjeta__dato span {
+  overflow-wrap: anywhere;
+}
+
+.veterinaria-tarjeta__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.veterinaria-etiqueta {
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radio-redondo);
+  background: #F7EEF6;
+  color: #71516C;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.veterinaria-tarjeta__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.veterinaria-tarjeta__distancia {
+  color: var(--color-texto-suave);
+  font-size: 0.82rem;
+}
+
+.veterinaria-tarjeta__accion {
+  min-width: 7rem;
+}
+
+.veterinarias-estado {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  padding: clamp(2rem, 6vw, 3.5rem) 1.25rem;
+  border: 1px dashed var(--color-borde);
+  border-radius: var(--radio-xl);
+  background: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.veterinarias-estado__icono {
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  border-radius: 1.15rem;
+  background: var(--color-rosa-suave);
+  color: var(--color-rosa-hover);
+}
+
+.veterinarias-estado__icono svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.veterinarias-estado h4 {
+  font-size: 1.3rem;
+}
+
+.veterinarias-estado p {
+  max-width: 34rem;
+  color: var(--color-texto-suave);
+}
+
+.veterinarias-carga {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.veterinaria-esqueleto {
+  min-height: 18rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-xl);
+  background: linear-gradient(100deg, #FFFFFF 20%, #F9EFF2 38%, #FFFFFF 56%);
+  background-size: 220% 100%;
+  animation: veterinarias-brillo 1.4s ease-in-out infinite;
+}
+
+@keyframes veterinarias-brillo {
+  to { background-position-x: -220%; }
+}
+
+/* Modal nativo para conservar Escape, foco y comportamiento de diálogo accesible. */
+.veterinarias-dialogo {
+  width: min(42rem, calc(100% - 1.25rem));
+  max-width: 42rem;
+  max-height: min(88vh, 54rem);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-xl);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  box-shadow: 0 24px 70px rgba(43, 28, 38, 0.24);
+}
+
+.veterinarias-dialogo::backdrop {
+  background: rgba(43, 28, 38, 0.52);
+  backdrop-filter: blur(3px);
+}
+
+.veterinarias-dialogo__interior {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.1rem, 4vw, 1.75rem);
+}
+
+.veterinarias-dialogo__encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.veterinarias-dialogo__titulo {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.veterinarias-dialogo__titulo h2 {
+  font-size: clamp(1.55rem, 4vw, 2rem);
+}
+
+.veterinarias-dialogo__titulo p {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.veterinarias-dialogo__cerrar {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-borde);
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--color-vino);
+  font-size: 1.35rem;
+}
+
+.veterinarias-dialogo__seccion {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.veterinarias-dialogo__seccion h3 {
+  font-family: var(--fuente-texto);
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.veterinarias-dialogo__contacto {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.veterinarias-dialogo__contacto a,
+.veterinarias-dialogo__contacto p {
+  overflow-wrap: anywhere;
+  color: var(--color-texto-suave);
+}
+
+.veterinarias-dialogo__contacto svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  color: var(--color-rosa-hover);
+}
+
+.veterinarias-dialogo__contacto a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--color-rosa-hover);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.veterinarias-dialogo__horarios {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.veterinarias-dialogo__horario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.veterinarias-dialogo__horario strong {
+  color: var(--color-vino);
+  font-weight: 600;
+}
+
+.veterinarias-dialogo__estado {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 2rem 1rem;
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+.veterinarias-dialogo__pie {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 650px) {
+  .veterinarias-grid,
+  .veterinarias-carga {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .veterinaria-tarjeta {
+    padding: 1.4rem;
+  }
+}
+
+@media (min-width: 1020px) {
+  .veterinarias-grid,
+  .veterinarias-carga {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veterinarias-filtro,
+  .veterinaria-tarjeta {
+    transition: none;
+  }
+
+  .veterinaria-esqueleto {
+    animation: none;
+  }
+}

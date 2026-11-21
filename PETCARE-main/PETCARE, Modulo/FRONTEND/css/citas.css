@@ -1,0 +1,567 @@
+/* Estilos de Citas. La paleta, tipografía y los componentes básicos son compartidos. */
+.pagina-citas {
+  background:
+    radial-gradient(circle at 94% 8%, rgba(252, 232, 239, 0.68), transparent 22rem),
+    var(--color-fondo);
+}
+
+.citas-arranque,
+.citas-sesion-error {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: center;
+  gap: var(--espacio-4);
+  padding: var(--espacio-6);
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+.citas-arranque__marca {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, #F6B4C9, #E58DAA);
+  box-shadow: 8px 8px 18px rgba(181, 124, 145, 0.19), -7px -7px 17px rgba(255, 255, 255, 0.95);
+  color: #FFFFFF;
+  font-family: var(--fuente-titulos);
+  font-size: 1.9rem;
+}
+
+.citas-sesion-error__tarjeta {
+  width: min(100%, 30rem);
+  padding: clamp(1.5rem, 5vw, 2.4rem);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radio-xl);
+  background: linear-gradient(145deg, #FFFFFF, #FFF2F6);
+  box-shadow: var(--color-sombra);
+}
+
+.citas-sesion-error h1 {
+  margin-bottom: var(--espacio-3);
+  font-size: 1.8rem;
+}
+
+.citas-sesion-error p {
+  margin-bottom: var(--espacio-5);
+}
+
+.citas-pagina {
+  display: grid;
+  gap: var(--espacio-6);
+}
+
+.citas-intro {
+  display: grid;
+  gap: var(--espacio-2);
+}
+
+.citas-intro__sobrelinea {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  color: var(--color-rosa-hover);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.citas-intro__sobrelinea svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.citas-intro h2 {
+  font-size: clamp(2rem, 5vw, 2.65rem);
+}
+
+.citas-intro p:last-child {
+  color: var(--color-texto-suave);
+}
+
+.citas-controles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-4);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radio-xl);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 8px 8px 22px rgba(181, 124, 145, 0.07), -6px -6px 18px rgba(255, 255, 255, 0.92);
+}
+
+.citas-vistas {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-redondo);
+  background: #F9F1F4;
+}
+
+.citas-vistas__boton {
+  display: inline-flex;
+  min-height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-radius: var(--radio-redondo);
+  background: transparent;
+  color: var(--color-texto-suave);
+  font-weight: 600;
+  transition: background var(--transicion), color var(--transicion), box-shadow var(--transicion);
+}
+
+.citas-vistas__boton[aria-selected="true"] {
+  background: #FFFFFF;
+  color: var(--color-vino);
+  box-shadow: 0 3px 10px rgba(76, 42, 57, 0.1);
+}
+
+.citas-vistas__boton svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.citas-filtro {
+  display: grid;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.citas-filtro label {
+  color: var(--color-vino);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.citas-filtro select {
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.65rem 2.4rem 0.65rem 0.85rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  background: #FFFFFF;
+  color: var(--color-vino);
+}
+
+.citas-filtro__ayuda {
+  color: var(--color-texto-suave);
+  font-size: 0.78rem;
+}
+
+.citas-vista {
+  min-width: 0;
+}
+
+.citas-secciones {
+  display: grid;
+  gap: var(--espacio-6);
+}
+
+.citas-grupo {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.citas-grupo__encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.citas-grupo__encabezado h3 {
+  font-size: 1.45rem;
+}
+
+.citas-grupo__cantidad {
+  display: inline-grid;
+  min-width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  padding-inline: 0.45rem;
+  border-radius: var(--radio-redondo);
+  background: var(--color-rosa-suave);
+  color: var(--color-rosa-hover);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.citas-grupo__lista {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.cita-tarjeta {
+  display: grid;
+  gap: var(--espacio-4);
+  padding: var(--espacio-4);
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  border-radius: var(--radio-xl);
+  background: linear-gradient(145deg, #FFFFFF, #FFFAFC);
+  box-shadow: 8px 8px 20px rgba(181, 124, 145, 0.075), -7px -7px 18px rgba(255, 255, 255, 0.96);
+}
+
+.cita-tarjeta__principal {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+}
+
+.cita-tarjeta__icono {
+  display: grid;
+  width: 2.85rem;
+  height: 2.85rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 1rem;
+  background: #FCE8EF;
+  color: var(--color-rosa-hover);
+}
+
+.cita-tarjeta__icono svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.cita-tarjeta__encabezado {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+  flex: 1 1 auto;
+}
+
+.cita-tarjeta__mascota {
+  overflow-wrap: anywhere;
+  color: var(--color-vino);
+  font-size: 1.14rem;
+  font-weight: 700;
+}
+
+.cita-tarjeta__motivo {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.cita-tarjeta__estado {
+  flex: 0 0 auto;
+}
+
+.cita-tarjeta__datos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-3);
+  padding-top: var(--espacio-3);
+  border-top: 1px solid var(--color-borde);
+}
+
+.cita-tarjeta__dato {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: var(--espacio-2);
+  color: var(--color-texto-suave);
+  font-size: 0.88rem;
+}
+
+.cita-tarjeta__dato svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  color: var(--color-rosa-hover);
+}
+
+.cita-tarjeta__dato span {
+  overflow-wrap: anywhere;
+}
+
+.citas-subestado {
+  padding: var(--espacio-4);
+  border: 1px dashed var(--color-borde);
+  border-radius: var(--radio-lg);
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+.citas-vacio {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-3);
+  padding: clamp(2rem, 6vw, 3.5rem) var(--espacio-5);
+  border: 1px dashed #E9CED8;
+  border-radius: var(--radio-xl);
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.citas-vacio__icono {
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  place-items: center;
+  border-radius: 1.35rem;
+  background: var(--color-rosa-suave);
+  color: var(--color-rosa-hover);
+}
+
+.citas-vacio__icono svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.citas-vacio h3 {
+  font-size: 1.45rem;
+}
+
+.citas-vacio p {
+  max-width: 34rem;
+  color: var(--color-texto-suave);
+}
+
+.citas-carga,
+.citas-error {
+  display: grid;
+  min-height: 12rem;
+  align-content: center;
+  justify-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-5);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-xl);
+  background: #FFFFFF;
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+.citas-error__mensaje {
+  max-width: 36rem;
+}
+
+.citas-calendario {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.citas-calendario__tarjeta {
+  padding: var(--espacio-4);
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  border-radius: var(--radio-xl);
+  background: linear-gradient(145deg, #FFFFFF, #FFFAFC);
+  box-shadow: 8px 8px 20px rgba(181, 124, 145, 0.075), -7px -7px 18px rgba(255, 255, 255, 0.96);
+}
+
+.citas-calendario__encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  margin-bottom: var(--espacio-4);
+}
+
+.citas-calendario__titulo {
+  font-size: 1.45rem;
+  text-transform: capitalize;
+}
+
+.citas-calendario__navegacion {
+  display: flex;
+  gap: var(--espacio-2);
+}
+
+.citas-calendario__flecha {
+  display: grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  place-items: center;
+  border: 1px solid var(--color-borde);
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--color-vino);
+  font-size: 1.3rem;
+  transition: background var(--transicion), transform var(--transicion);
+}
+
+.citas-calendario__flecha:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--color-rosa-suave);
+}
+
+.citas-calendario__rejilla {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.citas-calendario__dia-semana {
+  display: grid;
+  min-height: 2rem;
+  place-items: center;
+  color: var(--color-texto-suave);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.citas-calendario__celda {
+  display: grid;
+  min-width: 0;
+  min-height: 3.35rem;
+  place-items: center;
+}
+
+.citas-calendario__dia {
+  position: relative;
+  display: grid;
+  width: min(100%, 3.1rem);
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--color-vino);
+  font-size: 0.9rem;
+  transition: background var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.citas-calendario__dia:hover {
+  border-color: var(--color-borde);
+  background: #FFF4F7;
+}
+
+.citas-calendario__dia--hoy {
+  border-color: rgba(220, 126, 158, 0.55);
+  font-weight: 700;
+}
+
+.citas-calendario__dia--seleccionado,
+.citas-calendario__dia--seleccionado:hover {
+  border-color: var(--color-rosa);
+  background: var(--color-rosa);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(220, 126, 158, 0.23);
+}
+
+.citas-calendario__dia--con-citas::after {
+  position: absolute;
+  bottom: 0.24rem;
+  left: 50%;
+  width: 0.32rem;
+  height: 0.32rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-rosa-hover);
+  content: "";
+}
+
+.citas-calendario__dia--seleccionado.citas-calendario__dia--con-citas::after {
+  background: #FFFFFF;
+}
+
+.citas-calendario__seleccionado {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.citas-calendario__seleccionado h3 {
+  font-size: 1.35rem;
+  text-transform: capitalize;
+}
+
+.citas-calendario__ayuda {
+  color: var(--color-texto-suave);
+  font-size: 0.82rem;
+}
+
+@media (min-width: 620px) {
+  .citas-controles {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .citas-vistas {
+    width: auto;
+    min-width: 13rem;
+  }
+
+  .citas-filtro {
+    width: min(18rem, 45%);
+  }
+
+  .cita-tarjeta {
+    padding: var(--espacio-5);
+  }
+
+  .cita-tarjeta__datos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .citas-calendario__tarjeta {
+    padding: var(--espacio-5);
+  }
+
+  .citas-calendario__rejilla {
+    gap: 0.45rem;
+  }
+
+  .citas-calendario__celda {
+    min-height: 4rem;
+  }
+
+  .citas-calendario__dia {
+    font-size: 0.98rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .citas-pagina {
+    gap: var(--espacio-8);
+  }
+
+  .citas-calendario {
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: start;
+  }
+
+  .citas-calendario__seleccionado {
+    padding: var(--espacio-4) 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .citas-calendario__tarjeta {
+    padding: var(--espacio-3);
+  }
+
+  .citas-calendario__rejilla {
+    gap: 0.08rem;
+  }
+
+  .citas-calendario__dia-semana {
+    font-size: 0.64rem;
+  }
+
+  .citas-calendario__celda {
+    min-height: 2.9rem;
+  }
+
+  .citas-calendario__dia {
+    width: 2.35rem;
+    border-radius: 0.75rem;
+  }
+}
+
+.cita-tarjeta__icono img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}

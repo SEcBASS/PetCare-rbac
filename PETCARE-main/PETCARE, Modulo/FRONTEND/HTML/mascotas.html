@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Administra la información de tus mascotas en PetCare.">
+  <title>Mis mascotas — PetCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/mascotas.css">
+  <script type="module" src="../js/mascotas.js"></script>
+</head>
+<body class="pagina-mascotas">
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="mascotas-arranque" role="status"><span class="mascotas-arranque__marca" aria-hidden="true">P</span><span>Preparando tus mascotas…</span></div>
+  </div>
+
+  <!-- Formulario compartido para crear y editar una mascota. -->
+  <dialog class="modal mascotas-modal" id="modal-mascota" aria-labelledby="modal-mascota-titulo">
+    <div class="modal__contenido">
+      <div class="modal__encabezado">
+        <div>
+          <p class="mascotas-modal__sobrelinea">Información de tu compañero</p>
+          <h2 class="modal__titulo" id="modal-mascota-titulo">Agregar mascota</h2>
+        </div>
+        <button class="mascotas-icono-boton" type="button" data-cerrar-modal aria-label="Cerrar formulario">×</button>
+      </div>
+      <p class="mascotas-formulario__mensaje" id="formulario-mascota-mensaje" role="alert" hidden></p>
+      <form id="formulario-mascota" class="formulario mascotas-formulario" novalidate>
+        <div class="mascotas-formulario__rejilla">
+          <label class="campo">
+            <span class="campo__etiqueta">Nombre *</span>
+            <input class="campo__control" name="nombre" id="mascota-nombre" type="text" maxlength="60" autocomplete="off" required>
+            <small class="campo__error" data-error="nombre"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Especie *</span>
+            <select class="campo__control" name="especie_id" id="mascota-especie" required>
+              <option value="">Selecciona una especie</option>
+            </select>
+            <small class="campo__error" data-error="especie_id"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Raza</span>
+            <select class="campo__control" name="raza_id" id="mascota-raza" disabled>
+              <option value="">Selecciona primero una especie</option>
+            </select>
+            <small class="campo__error" data-error="raza_id"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Sexo *</span>
+            <select class="campo__control" name="sexo" id="mascota-sexo" required>
+              <option value="">Selecciona</option>
+              <option value="macho">Macho</option>
+              <option value="hembra">Hembra</option>
+            </select>
+            <small class="campo__error" data-error="sexo"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Color</span>
+            <input class="campo__control" name="color" id="mascota-color" type="text" maxlength="50" autocomplete="off">
+            <small class="campo__error" data-error="color"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Fecha de nacimiento</span>
+            <input class="campo__control" name="fecha_nacimiento" id="mascota-fecha-nacimiento" type="date">
+            <small class="campo__error" data-error="fecha_nacimiento"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Fecha de adopción</span>
+            <input class="campo__control" name="fecha_ingreso" id="mascota-fecha-ingreso" type="date">
+            <small class="campo__error" data-error="fecha_ingreso"></small>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Estado de salud *</span>
+            <select class="campo__control" name="estado_salud" id="mascota-estado-salud" required>
+              <option value="bueno">Bueno</option>
+              <option value="excelente">Excelente</option>
+              <option value="requiere_atencion">Requiere atención</option>
+            </select>
+            <small class="campo__error" data-error="estado_salud"></small>
+          </label>
+        </div>
+        <div class="mascotas-foto-campo">
+          <div class="mascotas-foto-campo__vista" id="mascota-foto-vista" aria-live="polite">
+            <span aria-hidden="true">✿</span>
+            <span>Vista previa de la foto</span>
+          </div>
+          <div class="mascotas-foto-campo__controles">
+            <label class="campo">
+              <span class="campo__etiqueta">Fotografía</span>
+              <input class="campo__control mascotas-archivo" name="foto" id="mascota-foto" type="file" accept="image/jpeg,image/png,image/webp">
+              <small class="campo__ayuda">JPG, PNG o WebP. Tamaño máximo: 4 MB.</small>
+              <small class="campo__error" data-error="foto"></small>
+            </label>
+            <button class="boton boton--texto" type="button" id="quitar-foto" hidden>Quitar fotografía</button>
+          </div>
+        </div>
+        <div class="mascotas-formulario__pie modal__acciones">
+          <button class="boton boton--secundario" type="button" data-cerrar-modal>Cancelar</button>
+          <button class="boton" type="submit" id="guardar-mascota">Guardar mascota</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</body>
+</html>

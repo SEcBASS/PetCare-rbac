@@ -1,0 +1,13 @@
+CORRECCIONES PETCARE — MÓDULO 15
+
+Reemplaza estos archivos en el proyecto:
+- js/api.js
+- js/layout.js
+- js/admin-usuarios.js
+
+Cambios incluidos:
+1. api.js: agrega api.notificaciones.contarSinLeer(), que reutiliza GET /api/notificaciones?leidas=false; no crea un endpoint nuevo.
+2. layout.js: corrige las rutas del menú administrador para utilizar páginas existentes, restaura el enlace al carnet de vacunas y expone recargarNotificaciones() para que el módulo 9 refresque el contador.
+3. admin-usuarios.js: corrige el enlace al carnet de vacunas a /admin-vacunas.html. Se conserva /admin/citas.html como alias de compatibilidad para abrir la creación de cita con el usuario seleccionado.
+
+No contiene backend ni migraciones SQL. Después de reemplazar, sirve frontend y API desde el mismo origen y valida en navegador con cuentas de ambos roles.

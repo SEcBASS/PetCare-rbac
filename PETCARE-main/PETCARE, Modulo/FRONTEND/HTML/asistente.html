@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Habla con PetCare AI y consulta información general sobre el cuidado de perros y gatos.">
+  <title>Asistente IA — PetCare</title>
+
+  <!-- Tipografías compartidas por toda la aplicación. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Primero se cargan los estilos globales y después los del asistente. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/asistente.css">
+  <script type="module" src="../js/asistente.js"></script>
+</head>
+<body class="pagina-asistente">
+  <!-- La página se construye después de validar la sesión del servidor. -->
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="asistente-arranque" role="status">
+      <span class="asistente-arranque__marca" aria-hidden="true">P</span>
+      <span>Preparando tu espacio con PetCare AI…</span>
+    </div>
+  </div>
+</body>
+</html>

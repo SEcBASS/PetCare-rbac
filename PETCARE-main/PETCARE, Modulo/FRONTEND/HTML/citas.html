@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FEF7F7">
+  <meta name="description" content="Consulta las citas veterinarias programadas para tus mascotas en PetCare.">
+  <title>Citas — PetCare</title>
+
+  <!-- Tipografías compartidas de PetCare. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos base compartidos y estilos propios de Citas. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/citas.css">
+  <script type="module" src="../js/citas.js"></script>
+</head>
+<body class="pagina-citas">
+  <!-- La navegación se dibuja después de validar la sesión con el servidor. -->
+  <div id="app" aria-live="polite" aria-busy="true">
+    <div class="citas-arranque" role="status">
+      <span class="citas-arranque__marca" aria-hidden="true">P</span>
+      <span>Preparando tus citas…</span>
+    </div>
+  </div>
+</body>
+</html>
