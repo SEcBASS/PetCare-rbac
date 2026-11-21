@@ -1,6 +1,6 @@
 # Mi aporte a PetCare: autenticación y roles
 
-Hola. Soy SEBASS y trabajé en conectar el backend de PetCare con MariaDB e incorporar un sistema sencillo de roles. La idea fue que el proyecto pudiera distinguir entre personas comunes y administradores sin volver a escribir la autorización en cada pantalla del frontend.
+Wenasss. Soy SEBASS y trabajé en conectar el backend de PetCare con MariaDB e incorporar un sistema sencillo de roles. La idea fue que el proyecto pudiera distinguir entre personas comunes y administradores sin volver a escribir la autorización en cada pantalla del frontend.
 
 Este trabajo corresponde al estado del proyecto al 21 de noviembre de 2026.
 
