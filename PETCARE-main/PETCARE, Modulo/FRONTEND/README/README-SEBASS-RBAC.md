@@ -134,19 +134,63 @@ COOKIE_SECURE=false
 
 El secreto de sesión debe reemplazarse por un valor largo y aleatorio antes de usar el proyecto fuera del entorno de desarrollo.
 
-## Ejecución en Windows con XAMPP
+## Cómo preparar PetCare una sola vez
 
-Primero inicia Apache y MySQL desde el panel de XAMPP. Después prepara la base desde phpMyAdmin o ejecuta `python setup_database.py` con los datos de `.env`.
+Cuando otra persona o una instalación nueva vaya a usar el proyecto, la configuración debe quedar así:
 
-Desde PowerShell, dentro de la carpeta del backend:
+1. Instalar XAMPP e iniciar Apache y MySQL.
+2. Abrir `http://localhost/phpmyadmin`.
+3. Crear una base llamada `petcare`.
+4. Seleccionar esa base y importar `DATABASE/petcare.sql`.
+5. Copiar `BACKEND/.env.example` como `BACKEND/.env`.
+6. Confirmar los datos de XAMPP dentro de `.env`: normalmente el usuario es `root`, la contraseña está vacía y el puerto es `3306`.
+7. Crear el entorno virtual e instalar las dependencias desde la carpeta `BACKEND`:
+
+pero igual es uuuuuuultraobvio supongo.....
 
 ```powershell
+
+eto es para el entorno virtuañl
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python setup_database.py
+```
+
+El script `setup_database.py` no reemplaza datos existentes ni vuelve a crear cuentas duplicadas. También puede ejecutar la importación cuando no exista todavía la base `petcare`.
+
+## Para abrir el sitio en Windows
+
+Cada vez que quieras usar PetCare, solo necesitas iniciar XAMPP y FastAPI:
+
+1. En el panel de XAMPP, inicia **Apache** y **MySQL**.
+2. Desde PowerShell, entra a `BACKEND` y activa el entorno:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 uvicorn main:app --host 127.0.0.1 --port 8001
 ```
 
-El frontend se sirve por Apache desde `http://localhost/.../FRONTEND/HTML/`, y FastAPI permanece disponible en `http://127.0.0.1:8001`. No es necesario usar Docker.
+3. Abre el frontend por Apache desde `http://localhost/.../FRONTEND/HTML/login.html` o coloca la carpeta del proyecto dentro de `htdocs`.
+4. Inicia sesión con la cuenta registrada o con una cuenta de prueba.
+
+No hace falta volver a importar `petcare.sql` ni ejecutar `setup_database.py` en cada inicio si la base y las cuentas ya están configuradas. Solo se ejecutan nuevamente cuando cambias de equipo, reinstalas XAMPP o necesitas preparar una instalación nueva.
+
+## Cómo se conserva la sesión
+
+Al iniciar sesión, el backend crea una cookie firmada que el navegador conserva. Si marcas la opción de recordar sesión, la cookie permanece hasta 30 días; sin esa opción permanece hasta 8 horas.
+
+Cuando vuelves a abrir el sitio dentro de ese plazo:
+
+- el navegador envía la cookie automáticamente;
+- el backend verifica que el usuario todavía exista;
+- el servidor comprueba que la cuenta siga activa;
+- el servidor vuelve a consultar el rol desde MariaDB;
+- si el rol cambió, el acceso se ajusta automáticamente.
+
+La protección no depende de mostrar u ocultar botones. El servidor vuelve a autorizar cada ruta administrativa. Si cierras sesión manualmente, eliminamos la cookie. Si cambias la contraseña en una implementación posterior, conviene además revocar las sesiones anteriores desde el servidor.
+
+Esto es persistencia de inicio de sesión en el navegador, no todavía una tabla pública de sesiones. La cookie puede cerrarse al vencer, al cerrar manualmente la sesión o al cambiar el secreto `SESSION_SECRET`. No es necesario usar Docker.
 
 ## Cuentas para probar el proyecto
 
@@ -190,7 +234,7 @@ La implementación actual cubre autenticación, conexión a la base de datos y R
 
 - recuperación de contraseña;
 - autenticación mediante Google o Facebook;
-- persistencia de sesiones en una tabla de base de datos;
+- una tabla para revocar todas las sesiones de manera inmediata;
 - bloqueo temporal ante intentos repetidos de inicio de sesión;
 - auditoría detallada de acciones administrativas;
 - configuración completa de despliegue HTTPS.
