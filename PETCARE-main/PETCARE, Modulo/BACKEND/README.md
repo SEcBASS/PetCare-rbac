@@ -2,35 +2,53 @@
 
 ## Requisitos
 
-- MariaDB/MySQL ejecutándose en el host configurado.
+- XAMPP con Apache y MariaDB activos en Windows.
 - Python 3.10 o superior.
+- El repositorio ubicado dentro de una carpeta accesible desde Apache.
 
-## Configuración
+## Configuración con XAMPP
 
-1. Copia el archivo de ejemplo:
+1. Abre el Panel de Control de XAMPP e inicia Apache y MySQL.
+2. Crea o abre la base `petcare` en `http://localhost/phpmyadmin`.
+3. Importa el archivo `DATABASE/petcare.sql` desde la pestaña Importar.
+4. Copia la configuración de ejemplo:
 
-```bash
-cp .env.example .env
+```powershell
+Copy-Item .env.example .env
 ```
 
-2. Cambia `SESSION_SECRET` y las credenciales de MySQL en `.env`.
-3. Instala las dependencias:
+5. Revisa `.env` usando los valores normales de XAMPP:
 
-```bash
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=petcare
+SESSION_SECRET=cambia-esta-clave
+CORS_ORIGINS=http://localhost
+COOKIE_SECURE=false
+```
+
+6. Instala las dependencias:
+
+```powershell
 python -m pip install -r requirements.txt
 ```
 
-4. Inicializa la base y crea las cuentas de desarrollo:
+7. Puedes repetir la creación de cuentas de desarrollo:
 
-```bash
+```powershell
 python setup_database.py
 ```
 
-5. Arranca el servidor:
+8. Arranca FastAPI:
 
-```bash
-uvicorn main:app --host 127.0.0.1 --port 8000
+```powershell
+uvicorn main:app --host 127.0.0.1 --port 8001
 ```
+
+Si el frontend está dentro de `htdocs`, ejecuta XAMPP desde `http://localhost/PETCARE/PETCARE-main/PETCARE, Modulo/FRONTEND/HTML/`.
 
 ## Cuentas iniciales
 

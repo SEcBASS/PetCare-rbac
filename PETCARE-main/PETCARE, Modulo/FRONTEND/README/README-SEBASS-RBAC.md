@@ -9,13 +9,13 @@ Este trabajo corresponde al estado del proyecto al 21 de noviembre de 2026.
 - **Python 3.14** como lenguaje principal del backend.
 - **FastAPI** para la creación de la API REST y sus rutas protegidas.
 - **Uvicorn** como servidor ASGI durante el desarrollo.
-- **MariaDB** como motor de base de datos, ejecutado inicialmente en Docker.
+- **MariaDB** incluida en XAMPP como motor de base de datos.
 - **mysql-connector-python** para la comunicación entre Python y MariaDB.
 - **Pydantic** para validar los datos recibidos por la API.
 - **bcrypt** para almacenar y verificar contraseñas mediante hashes seguros.
 - **PyJWT** para firmar las sesiones emitidas por el servidor.
 - **python-dotenv** para cargar variables de configuración desde un archivo `.env`.
-- **Docker** para contenerizar MariaDB y facilitar su ejecución local.
+- **XAMPP** para ejecutar Apache y MariaDB en Windows.
 - **HTML, CSS y JavaScript ES Modules** en la parte existente del frontend.
 
 ## Cambios realizados
@@ -79,9 +79,9 @@ Preparé un proceso de inicialización que:
 
 El esquema existente contiene el campo `usuarios.rol` como enumeración con los valores `administrador` y `usuario`, por lo que se mantuvo esa estructura para evitar cambios innecesarios.
 
-### Docker y MariaDB
+### XAMPP y MariaDB
 
-Ejecuté MariaDB como contenedor en el puerto local `3306`. Creé `petcare-mariadb` con un volumen Docker para conservar los datos entre reinicios.
+La instalación prevista para Windows usa el paquete de MariaDB que incluye XAMPP. Apache sirve el frontend y MariaDB permanece disponible en el puerto `3306`. XAMPP permite administrar las tablas desde phpMyAdmin y mantiene una configuración sencilla para las pruebas locales.
 
 ## Rutas principales
 
@@ -128,22 +128,25 @@ DB_USER=root
 DB_PASSWORD=
 DB_NAME=petcare
 SESSION_SECRET=cambia-esta-clave
-CORS_ORIGINS=http://localhost:8080
+CORS_ORIGINS=http://localhost
 COOKIE_SECURE=false
 ```
 
 El secreto de sesión debe reemplazarse por un valor largo y aleatorio antes de usar el proyecto fuera del entorno de desarrollo.
 
-## Ejecución
+## Ejecución en Windows con XAMPP
 
-Desde la carpeta del backend:
+Primero inicia Apache y MySQL desde el panel de XAMPP. Después prepara la base desde phpMyAdmin o ejecuta `python setup_database.py` con los datos de `.env`.
 
-```bash
+Desde PowerShell, dentro de la carpeta del backend:
+
+```powershell
+python -m pip install -r requirements.txt
 python setup_database.py
 uvicorn main:app --host 127.0.0.1 --port 8001
 ```
 
-El servidor puede probarse con una herramienta HTTP como curl o con el cliente del frontend.
+El frontend se sirve por Apache desde `http://localhost/.../FRONTEND/HTML/`, y FastAPI permanece disponible en `http://127.0.0.1:8001`. No es necesario usar Docker.
 
 ## Cuentas para probar el proyecto
 

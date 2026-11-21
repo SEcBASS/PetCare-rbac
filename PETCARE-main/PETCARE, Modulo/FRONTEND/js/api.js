@@ -4,7 +4,9 @@
  * Este archivo no guarda tokens, no simula respuestas y no realiza validaciones de autorización.
  */
 
-const API_BASE = "/api";
+const API_BASE = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+    ? "http://127.0.0.1:8001/api"
+    : "/api";
 
 /** Error normalizado para conservar el formato que devuelve el servidor: { error, campos }. */
 export class ApiError extends Error {
@@ -50,7 +52,7 @@ async function solicitar(ruta, opciones = {}) {
     respuesta = await fetch(`${API_BASE}${ruta}`, {
       method,
       headers: encabezados,
-      credentials: "same-origin",
+      credentials: "include",
       cache: "no-store",
       signal,
       body: body === undefined ? undefined : JSON.stringify(body)

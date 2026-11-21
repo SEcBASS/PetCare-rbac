@@ -26,7 +26,7 @@ DATABASE_CONFIG = {
 SESSION_SECRET = os.getenv("SESSION_SECRET")
 SESSION_COOKIE = "petcare_session"
 CORS_ORIGINS = [origin.strip() for origin in os.getenv(
-    "CORS_ORIGINS", "http://localhost:8080"
+    "CORS_ORIGINS", "http://localhost,http://127.0.0.1"
 ).split(",") if origin.strip()]
 COOKIE_SECURE = os.getenv("COOKIE_SECURE", "false").lower() == "true"
 SESSION_SHORT_SECONDS = 8 * 60 * 60
